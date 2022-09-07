@@ -22,8 +22,6 @@ public class PracticingStrings {
         final String concatPhrases = phrase + phrase2;
         System.out.println("Concatenating the two strings: " + concatPhrases);
 
-        int cassensitive;
-
         System.out.print("What letter are you looking for in the first phrase: ");
         final String letterInPhrase = input.nextLine();
         final int indexOfLetter = phrase.indexOf(letterInPhrase);
