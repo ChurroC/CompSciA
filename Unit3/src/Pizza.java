@@ -30,10 +30,10 @@ public class Pizza {
     public String toString() {
         String output = "";
 
-        output += "Store" + this.getStore() + "\n";
-        output += "Size" + this.getInches() + " inches\n";
+        output += "Store: " + this.getStore() + "\n";
+        output += "Size: " + this.getInches() + " inches\n";
         output += "Number Of Toppings:" + this.getNumToppings() + "\n";
-        output += "Deep Dish" + (isDeepDish ? "YES" : "NO");
+        output += "Deep Dish: " + (isDeepDish ? "YES" : "NO");
 
         return output;
     }

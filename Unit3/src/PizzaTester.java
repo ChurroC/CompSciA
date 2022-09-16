@@ -10,10 +10,7 @@ public class PizzaTester {
         System.out.print("\nWhat size pizza in inches would you like?: ");
         final int size = input.nextInt();
 
-        System.out.println("\nHow many toppings would you like?: ");
-        final int numToppings = input.nextInt();
-
-        System.out.println("\nWould you like deep fish?(Y/N): ");
+        System.out.print("\nWould you like deep fish?(Y/N): ");
         input.nextLine();
         final String deep = input.nextLine();
 
@@ -26,5 +23,6 @@ public class PizzaTester {
         Pizza pizza2 = new Pizza("Dominos", 16, false);
 
         System.out.println(pizza1.toString());
+        System.out.println(pizza1.equals(pizza1));
     }
 }
