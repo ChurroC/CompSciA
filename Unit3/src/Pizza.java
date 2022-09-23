@@ -17,14 +17,7 @@ public class Pizza {
     }
 
     public boolean equals(Pizza obj) {
-        if (obj.getInches() == this.inches) {
-            if (obj.getNumToppings() == this.numToppings) {
-                if (obj.isDeepDish() == this.isDeepDish) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        return obj.getInches() == this.inches && obj.getNumToppings() == this.numToppings && obj.isDeepDish() == this.isDeepDish;
     }
 
     public String toString() {
@@ -36,6 +29,10 @@ public class Pizza {
         output += "Deep Dish: " + (isDeepDish ? "YES" : "NO");
 
         return output;
+    }
+
+    public int compareTo(Pizza pizzaObj) {
+        return this.store.compareTo(pizzaObj.getStore());
     }
 
     public String getStore() {
@@ -51,7 +48,7 @@ public class Pizza {
     }
 
     public void setInches(int inches) {
-        this.inches = this.inches;
+        this.inches = inches;
     }
 
     public int getNumToppings() {
@@ -66,7 +63,7 @@ public class Pizza {
         return isDeepDish;
     }
 
-    public void setDeepDish(boolean deepDish) {
-        isDeepDish = deepDish;
+    public void setDeepDish(boolean isDeepDish) {
+        this.isDeepDish = isDeepDish;
     }
 }

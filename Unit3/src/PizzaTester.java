@@ -7,10 +7,10 @@ public class PizzaTester {
         System.out.print("Where would you like to order your pizza from?: ");
         final String store = input.nextLine();
 
-        System.out.print("\nWhat size pizza in inches would you like?: ");
+        System.out.print("What size pizza in inches would you like?: ");
         final int size = input.nextInt();
 
-        System.out.print("\nWould you like deep fish?(Y/N): ");
+        System.out.print("Would you like deep fish?(Y/N): ");
         input.nextLine();
         final String deep = input.nextLine();
 
@@ -22,7 +22,8 @@ public class PizzaTester {
         Pizza pizza1 = new Pizza(store, size, isDeep);
         Pizza pizza2 = new Pizza("Dominos", 16, false);
 
-        System.out.println(pizza1.toString());
-        System.out.println(pizza1.equals(pizza1));
+        System.out.println(pizza1);
+        System.out.println(pizza1.equals(pizza2));
+        System.out.println(pizza1.compareTo(pizza2));
     }
 }
