@@ -2,7 +2,10 @@ public class ChevyDriverStudent {
     public static void main(String[] args) {
         // Create objects
         Chevy traxBase = new Chevy();
+        traxBase.setMileage(15);
         Chevy traxLux = new Chevy();
+        traxBase.setMileage(175);
+        traxBase.setLuxuryPackage();
 
         // Set traxBase mileage to 15
 

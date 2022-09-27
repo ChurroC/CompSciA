@@ -4,6 +4,6 @@ public class ChevyTest {
                 "Fire Red", true, false, false);
         final Chevy corvetteSport = new Chevy(2020, 1500, 18.5, 58900, "Corvette (Sport)",
                 "Fire Red", true, false, true);
-        System.out.println(corvetteClassic.compareTo(corvetteSport));
+        System.out.println(new Chevy());
     }
 }
