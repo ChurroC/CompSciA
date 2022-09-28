@@ -1,6 +1,6 @@
 public class Chevy {
     private int year, mileage;
-    private double fuelEfficiency, basePrice, grandTotal, grandTotalWithoutTax;
+    private double fuelEfficiency, basePrice, grandTotal, priceWithUpgrades;
     private String model, color;
     private boolean isLuxuryPackage, is4WDPackage, isSportsPackage;
     private final String vehicleMake = "Chevrolet";
@@ -11,7 +11,7 @@ public class Chevy {
         fuelEfficiency = 35;
         basePrice = 16000;
         grandTotal = basePrice;
-        grandTotalWithoutTax = basePrice;
+        priceWithUpgrades = basePrice;
         model = "Trax";
         color = "White";
         isLuxuryPackage = false;
@@ -24,7 +24,7 @@ public class Chevy {
         this.fuelEfficiency = fuelEfficiency;
         this.basePrice = basePrice;
         grandTotal = basePrice;
-        grandTotalWithoutTax = basePrice;
+        priceWithUpgrades = basePrice;
         this.model = model;
         this.color = color;
         this.isLuxuryPackage = isLuxuryPackage;
@@ -33,11 +33,11 @@ public class Chevy {
     }
 
     public int compareTo(Chevy chevyObj) {
-        return mileage - chevyObj.getMileage();
+        return mileage - chevyObj.getMiles();
     }
 
     public boolean equals(Chevy chevyObj) {
-        return model.equals(chevyObj.getModel()) && color.equals(chevyObj.getColor()) && ((mileage < 200 && chevyObj.getMileage() < 200) || mileage > 200 && chevyObj.getMileage() > 200);
+        return model.equals(chevyObj.getModel()) && color.equals(chevyObj.getColor()) && ((mileage < 200 && chevyObj.getMiles() < 200) || mileage > 200 && chevyObj.getMiles() > 200);
     }
 
     public String toString() {
@@ -60,7 +60,7 @@ public class Chevy {
         if (!(isLuxuryPackage || is4WDPackage || isSportsPackage)) {
             vehicleDetails += "\n\t\t- None";
         }
-        vehicleDetails += "\n\n\tPRICE WITH UPGRADES:\t\t$" + grandTotalWithoutTax;
+        vehicleDetails += "\n\n\tPRICE WITH UPGRADES:\t\t$" + priceWithUpgrades;
         vehicleDetails += "\n\tFINAL PRICE WITH TAX:\t\t$" + grandTotal;
         vehicleDetails += "\n*************************************************";
         return vehicleDetails;
@@ -68,16 +68,17 @@ public class Chevy {
 
     public void calcPrice() {
         if (isLuxuryPackage) {
-            grandTotalWithoutTax += basePrice * .20;
+            priceWithUpgrades += basePrice * .20;
         }
         if (is4WDPackage) {
-            grandTotalWithoutTax += 3500;
+            priceWithUpgrades += 3500;
         }
         if (isSportsPackage) {
-            grandTotalWithoutTax += basePrice * .15;
+            priceWithUpgrades += basePrice * .15;
             fuelEfficiency = fuelEfficiency * .8;
         }
-        grandTotal = grandTotalWithoutTax + grandTotalWithoutTax * .122;
+        System.out.println(priceWithUpgrades + "wdkjoi");
+        grandTotal = priceWithUpgrades + priceWithUpgrades * .122;
     }
 
     public int getYear() {
@@ -88,15 +89,15 @@ public class Chevy {
         this.year = year;
     }
 
-    public int getMileage() {
+    public int getMiles() {
         return mileage;
     }
 
-    public void setMileage(int mileage) {
+    public void setMiles(int mileage) {
         this.mileage = mileage;
     }
 
-    public double getBasePrice() {
+    public double getBase_price() {
         return basePrice;
     }
 
@@ -136,27 +137,43 @@ public class Chevy {
         this.color = color;
     }
 
-    public boolean isLuxuryPackage() {
+    public boolean isHasLuxuryPkg() {
         return isLuxuryPackage;
     }
 
-    public void setLuxuryPackage(boolean luxuryPackage) {
+    public void setHasLuxuryPkg(boolean luxuryPackage) {
         isLuxuryPackage = luxuryPackage;
     }
 
-    public boolean isIs4WDPackage() {
+    public boolean isHas4WDPkg() {
         return is4WDPackage;
     }
 
-    public void setIs4WDPackage(boolean is4WDPackage) {
+    public void setHas4WDPkg(boolean is4WDPackage) {
         this.is4WDPackage = is4WDPackage;
     }
 
-    public boolean isSportsPackage() {
+    public boolean isHasSportsPackage() {
         return isSportsPackage;
     }
 
-    public void setSportsPackage(boolean sportsPackage) {
+    public void setHasSportsPackage(boolean sportsPackage) {
         isSportsPackage = sportsPackage;
+    }
+
+    public double getPriceWithUpgrades() {
+        return priceWithUpgrades;
+    }
+
+    public void setPriceWithUpgrades(double priceWithUpgrades) {
+        this.priceWithUpgrades = priceWithUpgrades;
+    }
+
+    public String getVehicleMake() {
+        return vehicleMake;
+    }
+
+    public double getTaxRate() {
+        return taxRate;
     }
 }

@@ -1,4 +1,4 @@
-/*import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
@@ -80,7 +80,7 @@ public class ChevyJUnitTestStudent {
         public void equalsMethodTestSix() {
             Chevy other = new Chevy();
             other.setModel(bluesilverado.getModel());
-            other.setNewVehicle(bluesilverado.isNewVehicle());
+            //other.setNewVehicle(bluesilverado.isNewVehicle());
             other.setColor(bluesilverado.getColor());
 
             boolean actual = bluesilverado.equals(other);
@@ -131,4 +131,3 @@ public class ChevyJUnitTestStudent {
 
 
 }
-*/
