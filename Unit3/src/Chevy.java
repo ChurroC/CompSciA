@@ -10,26 +10,24 @@ public class Chevy {
         mileage = 0;
         fuelEfficiency = 35;
         basePrice = 16000;
-        grandTotal = basePrice;
-        priceWithUpgrades = basePrice;
         model = "Trax";
         color = "White";
         isLuxuryPackage = false;
         is4WDPackage = false;
         isSportsPackage = false;
+        calcPrice();
     }
     public Chevy(int year, int mileage, double fuelEfficiency, int basePrice, String model, String color, boolean isLuxuryPackage, boolean is4WDPackage, boolean isSportsPackage) {
         this.year = year;
         this.mileage = mileage;
         this.fuelEfficiency = fuelEfficiency;
         this.basePrice = basePrice;
-        grandTotal = basePrice;
-        priceWithUpgrades = basePrice;
         this.model = model;
         this.color = color;
         this.isLuxuryPackage = isLuxuryPackage;
         this.is4WDPackage = is4WDPackage;
         this.isSportsPackage = isSportsPackage;
+        calcPrice();
     }
 
     public int compareTo(Chevy chevyObj) {
@@ -67,6 +65,7 @@ public class Chevy {
     }
 
     public void calcPrice() {
+        priceWithUpgrades = basePrice;
         if (isLuxuryPackage) {
             priceWithUpgrades += basePrice * .20;
         }
@@ -77,7 +76,6 @@ public class Chevy {
             priceWithUpgrades += basePrice * .15;
             fuelEfficiency = fuelEfficiency * .8;
         }
-        System.out.println(priceWithUpgrades + "wdkjoi");
         grandTotal = priceWithUpgrades + priceWithUpgrades * .122;
     }
 
