@@ -5,6 +5,7 @@ public class Chevy {
     private boolean isLuxuryPackage, is4WDPackage, isSportsPackage;
     private final String vehicleMake = "Chevrolet";
     private final double taxRate = .122;
+    
     public Chevy() {
         year = 2021;
         mileage = 0;
