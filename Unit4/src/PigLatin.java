@@ -7,8 +7,8 @@ public class PigLatin {
         for (String word : words) {
             message += translateWordToPigLatin(word) + " ";
         }
-        message = message.charAt(0);
-        return message;
+        message = message.toUpperCase().charAt(0) + message.substring(1);
+        return message.trim();
     }
 
     public static String translateWordToPigLatin(String phrase) {
