@@ -1,5 +1,3 @@
-import java.util.Locale;
-
 public class PigLatin {
     public static String toPigLatin(String phrase) {
         String message = "";
@@ -12,7 +10,7 @@ public class PigLatin {
     }
 
     public static String translateWordToPigLatin(String phrase) {
-        String message = "";
+        String message;
         phrase = phrase.toLowerCase();
         if (isVowel(phrase)) {
             if (phrase.charAt(0) == 'y') {
