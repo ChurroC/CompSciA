@@ -1,6 +1,8 @@
+import java.util.Scanner;
+
 public class SchU4TestRevWScode {
     public static void main(String[] args) {
-        System.out.println(removeChar("Chocolate", 'o'));
+        findFactors(40);
     }
 
     public static String doubleChar(String word) {
@@ -38,12 +40,46 @@ public class SchU4TestRevWScode {
         return word.replace(Character.toString(character), "");
     }
 
-    public static String hocusPocus() {
-        final String word = "HocusPocus";
+    public static String wordPyramid(String word) {
         String message = "";
-        for (int i = 0; i < 5; i++) {
-            for (int i = 1; i < word.length(); i++) {
-                message +=
+        for (int i = 2; i < word.length() + 2; i += 2) {
+            message += word.substring(0, i) + "\n";
+        }
+        return message;
+    }
+
+    public static String buildPhrase() {
+        String message = "";
+        Scanner input = new Scanner(System.in);
+        String word = "";
+
+        System.out.println("Enter the first word of your phrase (-1 to quit)");
+        word = input.nextLine();
+        while (!word.equals("-1")) {
+            message += word + " ";
+            System.out.println("Enter the first word of your phrase (-1 to quit)");
+            word = input.nextLine();
+        }
+
+        return message;
+    }
+
+    public static String stringPyramid() {
+        String message = "";
+        for (int i = 1; i < 6; i++) {
+            for (int j = i; j < i * i + 1; j += i) {
+                message += j;
+                message += "\t";
+            }
+            message += "\n";
+        }
+        return message;
+    }
+
+    public static void findFactors(int num) {
+        for (int i = 1; i < num + 1; i++) {
+            if (num % i == 0) {
+                System.out.println(i);
             }
         }
     }
