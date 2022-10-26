@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9245b025-604c-431c-bbb8-cfb12496bd2d" name="Changes" comment="Finished Test Review">
+    <list default="true" id="9245b025-604c-431c-bbb8-cfb12496bd2d" name="Changes" comment="Changes">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,22 +24,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "openjdk-18",
-    "last_opened_file_path": "C:/Brothers/Charan/Code/CompSciA/Unit4",
     "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.SchU4TestRevWScode">
+  <component name="RunManager" selected="Application.PigLatinTester">
     <configuration name="PigLatinTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="PigLatinTester" />
       <module name="Unit4" />
@@ -48,6 +39,13 @@
     </configuration>
     <configuration name="SchU4TestRevWScode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SchU4TestRevWScode" />
+      <module name="Unit4" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StringAlgorithms" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StringAlgorithms" />
       <module name="Unit4" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -64,9 +62,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PigLatinTester" />
+        <item itemvalue="Application.StringAlgorithms" />
         <item itemvalue="Application.SchU4TestRevWScode" />
         <item itemvalue="JUnit.PigLatinJUnitTest" />
-        <item itemvalue="Application.PigLatinTester" />
       </list>
     </recent_temporary>
   </component>
@@ -78,34 +77,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1666615270288</updated>
-      <workItem from="1666668865247" duration="3480000" />
     </task>
-    <task id="LOCAL-00001" summary="Finished Test Review">
-      <created>1666670805260</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1666670805260</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finished Test Review" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished Test Review" />
   </component>
 </project>
