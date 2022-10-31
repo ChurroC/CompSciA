@@ -7,7 +7,7 @@ public class Villain {
      * @param name name of villain
      * @param superPower villains superpower
      */
-    Villain(String name, Power superPower) {
+    public Villain(String name, Power superPower) {
         this.name = name;
         this.superPower = superPower;
     }

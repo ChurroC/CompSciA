@@ -2,7 +2,7 @@ public class SuperHero {
     String name;
     Power superPower;
 
-    SuperHero(String name, Power superPower) {
+    public SuperHero(String name, Power superPower) {
         this.name = name;
         this.superPower = superPower;
     }

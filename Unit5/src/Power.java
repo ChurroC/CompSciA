@@ -2,7 +2,7 @@ public class Power {
     String name;
     int strength;
 
-    Power(String name, int strength) {
+    public Power(String name, int strength) {
         this.name = name;
         this.strength = strength;
     }
