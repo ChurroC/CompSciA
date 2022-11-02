@@ -1,9 +1,49 @@
 package Lunch;
 
+/**
+ * This class is used to organize multiple Noms together and create a lunchbox.
+ */
 public class LunchBox {
     private Noms[] arrayOfNoms;
+    public LunchBox(Noms... arrayOfNoms) {
+        this.arrayOfNoms = arrayOfNoms;
+    }
     public LunchBox(Noms[] arrayOfNoms) {
         this.arrayOfNoms = arrayOfNoms;
+    }
+
+    /**
+     * To string method for the lunchbox class.
+     * @return a string representation of the lunchbox.
+     */
+    public String toString() {
+        String output = "";
+        for (int i = 0; i < arrayOfNoms.length; i++) {
+            if (arrayOfNoms[i] != null) {
+                output += arrayOfNoms[i] + "\n";
+            }
+        }
+        return output;
+    }
+
+    /**
+     * Compares if 2 lunchboxes are equal.
+     * @param lunchBox the lunchbox to compare to.
+     * @return true if the lunchboxes are equal, false if they are not.
+     */
+    public boolean compareTo(LunchBox lunchBox) {
+        if (lunchBox == null) {
+            return false;
+        }
+        if (lunchBox.arrayOfNoms.length != this.arrayOfNoms.length) {
+            return false;
+        }
+        for (int i = 0; i < lunchBox.arrayOfNoms.length; i++) {
+            if (!lunchBox.arrayOfNoms[i].equals(this.arrayOfNoms[i])) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -12,7 +52,7 @@ public class LunchBox {
      */
     public boolean checkForPeanuts() {
         for (Noms nom : arrayOfNoms) {
-            if (nom.isHasPeanuts()) {
+            if (nom != null || nom.isHasPeanuts()) {
                 return true;
             }
         }
@@ -26,7 +66,9 @@ public class LunchBox {
     public int totalCalories() {
         int totalCal = 0;
         for (Noms nom : arrayOfNoms) {
-            totalCal += nom.getCal();
+            if (nom != null) {
+                totalCal += nom.getCal();
+            }
         }
         return totalCal;
     }
@@ -39,7 +81,7 @@ public class LunchBox {
      */
     public Noms findNom(String name) {
         for (Noms nom : arrayOfNoms) {
-            if (nom.getName().equals(name)) {
+            if (nom != null || nom.getName().equals(name)) {
                 return nom;
             }
         }
