@@ -5,6 +5,7 @@ package Lunch;
  */
 public class LunchBox {
     private Noms[] arrayOfNoms;
+    
     public LunchBox(Noms... arrayOfNoms) {
         this.arrayOfNoms = arrayOfNoms;
     }
