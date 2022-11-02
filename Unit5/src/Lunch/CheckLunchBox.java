@@ -4,6 +4,7 @@ package Lunch;
  */
 public class CheckLunchBox {
     public static void main(String[] args) {
+        eat by removing items in array and also adding items in array
         LunchBox lunchBox = new LunchBox(new Noms("Apple", 100, false), new Noms("Peanut Butter", 200, true), new Noms("Jelly", 50, false));
 
         System.out.println("Does the lunchbox contain peanuts? " + lunchBox.checkForPeanuts());
