@@ -8,7 +8,7 @@ public class LunchBox {
     
     public LunchBox(Noms... arrayOfNoms) {
         this.arrayOfNoms = arrayOfNoms;
-    }
+    }Mybe arrays of Noms[] comes before Nom...
     public LunchBox(Noms[] arrayOfNoms) {
         this.arrayOfNoms = arrayOfNoms;
     }
