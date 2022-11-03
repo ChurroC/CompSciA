@@ -4,8 +4,6 @@ package Lunch;
  */
 public class CheckLunchBox {
     public static void main(String[] args) {
-        //eat by removing items in array and also adding items in array
-        //You can directly add new noms in params
         LunchBox lunchBox = new LunchBox(new Noms("Apple", 100, false), new Noms("Peanut Butter", 200, true), new Noms("Jelly", 50, false));
 
         System.out.println("Does the lunchbox contain peanuts? " + lunchBox.checkForPeanuts());
@@ -37,10 +35,12 @@ public class CheckLunchBox {
         System.out.println("Before eating a nom:");
         System.out.print(lunchBox2);
         System.out.println();
+        
         System.out.println("After eating a nom:");
         lunchBox2.eatNoms("Peanut Butter", "Bob");
         System.out.print(lunchBox2);
         System.out.println();
+        
         System.out.println("After refilling lunchbox:");
         lunchBox2.refillLunchbox(new Noms("Banana", 25, false), new Noms("Carrot", 300, false));
         System.out.println(lunchBox2);
