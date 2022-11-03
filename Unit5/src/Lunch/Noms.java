@@ -1,6 +1,8 @@
 package Lunch;
 /**
  * This class is used to represent a Nom.
+ * @author Charan Chandran
+ * @author Lukas Felde
  */
 public class Noms {
     private String name;

@@ -1,6 +1,8 @@
 package Lunch;
 /**
  * This class is used to test the LunchBox class.
+ * @author Charan Chandran
+ * @author Lukas Felde
  */
 public class CheckLunchBox {
     public static void main(String[] args) {

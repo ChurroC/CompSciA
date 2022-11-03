@@ -2,7 +2,8 @@ package Lunch;
 //import java.util.ArrayList;
 /**
  * This class is used to organize multiple Noms together and create a lunchbox.
- * @author Charan Lukas
+ * @author Charan Chandran
+ * @author Lukas Felde
  */
 public class LunchBox {
     private Noms[] arrayOfNoms;
