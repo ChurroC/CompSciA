@@ -46,6 +46,8 @@ public class CheckLunchBox {
         System.out.println("After refilling lunchbox:");
         lunchBox2.refillLunchbox(new Noms("Banana", 25, false), new Noms("Carrot", 300, false));
         System.out.println(lunchBox2);
+
+        System.out.println("Total amount of lunchboxes: " + LunchBox.getTotalLunchboxes());
     }
 
     /**

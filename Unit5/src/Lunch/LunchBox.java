@@ -7,8 +7,10 @@ package Lunch;
  */
 public class LunchBox {
     private Noms[] arrayOfNoms;
+    private static int totalLunchboxes = 0;
     
     public LunchBox(Noms... arrayOfNoms) {
+        totalLunchboxes++;
         this.arrayOfNoms = arrayOfNoms;
     }
 
@@ -151,5 +153,9 @@ public class LunchBox {
 
     public void setArrayOfNoms(Noms[] arrayOfNoms) {
         this.arrayOfNoms = arrayOfNoms;
+    }
+
+    public static int getTotalLunchboxes() {
+        return totalLunchboxes;
     }
 }
