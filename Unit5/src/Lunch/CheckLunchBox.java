@@ -6,6 +6,11 @@ package Lunch;
  */
 public class CheckLunchBox {
     public static void main(String[] args) {
+        //
+        //
+        // The static method could be in the class instead. We need to find a new static method idea that is more useful.
+        //
+        //
         LunchBox lunchBox = new LunchBox(new Noms("Apple", 100, false), new Noms("Peanut Butter", 200, true), new Noms("Jelly", 50, false));
 
         System.out.println("Does the lunchbox contain peanuts? " + lunchBox.checkForPeanuts());
