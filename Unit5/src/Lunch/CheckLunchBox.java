@@ -9,6 +9,7 @@ public class CheckLunchBox {
         //
         //
         // The static method could be in the class instead. We need to find a new static method idea that is more useful.
+        // Or static method on the class that tells you the lunch with the most calories.
         //
         //
         LunchBox lunchBox = new LunchBox(new Noms("Apple", 100, false), new Noms("Peanut Butter", 200, true), new Noms("Jelly", 50, false));
