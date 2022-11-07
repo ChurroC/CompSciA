@@ -8,10 +8,15 @@ package Lunch;
 public class LunchBox {
     private Noms[] arrayOfNoms;
     private static int totalLunchboxes = 0;
+    private static LunchBox lunchboxWithMostCalories = this;
     
     public LunchBox(Noms... arrayOfNoms) {
         totalLunchboxes++;
         this.arrayOfNoms = arrayOfNoms;
+        //Might be a stupid idea but
+        if (this.totalCalories() > lunchboxWithMostCalories.totalCalories()) {
+            lunchboxWithMostCalories = this;
+        }
     }
 
     /**
@@ -45,6 +50,11 @@ public class LunchBox {
         return true;
     }
 
+    /**
+     * Compares two Lunchboxes to check which one is bigger.
+     * @param lunchBox the lunchbox to compare to.
+     * @return how much more calories the lunchbox has.
+     */
     public int compareTo(LunchBox lunchBox) {
         return totalCalories() - lunchBox.totalCalories();
     }
@@ -144,6 +154,19 @@ public class LunchBox {
         arrayOfNoms = copyArray;
     }
 
+    /**
+     * This function returns an array of the same lunchbox multiple times for the whole family.
+     * @param lunchBoxCount the number of lunchboxes to return.
+     * @return an array of lunchboxes.
+     */
+    public LunchBox[] packMultipleLunchboxes(int lunchBoxCount) {
+        LunchBox[] arrayOfLunchboxes = new LunchBox[lunchBoxCount];
+        for (int i = 0; i < lunchBoxCount; i++) {
+            arrayOfLunchboxes[i] = this;
+        }
+        return arrayOfLunchboxes;
+    }
+
     public Noms[] getArrayOfNoms() {
         return arrayOfNoms;
     }
@@ -157,5 +180,9 @@ public class LunchBox {
 
     public static int getTotalLunchboxes() {
         return totalLunchboxes;
+    }
+
+    public static LunchBox getLunchboxWithMostCalories() {
+        return lunchboxWithMostCalories;
     }
 }

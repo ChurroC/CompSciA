@@ -1,0 +1,3 @@
+[submodule "ModDev"]
+	path = ModDev
+	url = https://github.com/TwitchC4T/ModDev
