@@ -1,5 +1,5 @@
 package Lunch;
-//import java.util.ArrayList;
+import java.util.ArrayList;
 /**
  * This class is used to organize multiple Noms together and create a lunchbox.
  * @author Charan Chandran
@@ -8,13 +8,13 @@ package Lunch;
 public class LunchBox {
     private Noms[] arrayOfNoms;
     private static int totalLunchboxes = 0;
-    private static LunchBox lunchboxWithMostCalories = this;
+    private static LunchBox lunchboxWithMostCalories;
     
     public LunchBox(Noms... arrayOfNoms) {
         totalLunchboxes++;
         this.arrayOfNoms = arrayOfNoms;
         //Might be a stupid idea but
-        if (this.totalCalories() > lunchboxWithMostCalories.totalCalories()) {
+        if (lunchboxWithMostCalories == null || this.totalCalories() > lunchboxWithMostCalories.totalCalories()) {
             lunchboxWithMostCalories = this;
         }
     }
@@ -104,25 +104,25 @@ public class LunchBox {
         //(Noms[]) output.toArray();
     }
 
+
     /**
      * This function is used to solve the problem where the function will return the first Nom.
      * This function will return the indice of the name.
      * So it can return the second peanut butter for example.
      * Works like {@link LunchBox#findNom(String name)} but has an index of which peanut butter should be returned.
-     * @param name name of the Nom to find.
+     *
+     * @param name  name of the Nom to find.
      * @param index name of the Nom to find.
      * @return the Nom with the matching name or returns null.
      */
-    public Noms findNom(String name, int index) {
-        //ArrayList<Noms> output = new ArrayList<Noms>();
+    public Noms[] findNomAll(String name) {
+        ArrayList<Noms> output = new ArrayList<Noms>();
         for (Noms nom : arrayOfNoms) {
             if (nom != null || nom.getName().equals(name)) {
-                //output.add(nom);
-                return nom;
+                output.add(nom);
             }
         }
-        return null;
-        //(Noms[]) output.toArray();
+        return output.toArray(new Noms[output.size()]);
     }
 
     /**

@@ -30,7 +30,7 @@ public class CheckLunchBox {
         System.out.println();
 
         System.out.print("toString Lunchbox Method: \n" + lunchBoxes[1]);
-        System.out.println("toString Nom Method: " + lunchBoxes[1].findNom("Peanut Butter"));
+        System.out.println("toString Nom Method: " + lunchBoxes[1].findNomAll("Peanut Butter")[0]);
         System.out.println();
 
         //You can use an array as a parameter for noms
