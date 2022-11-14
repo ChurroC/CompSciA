@@ -39,7 +39,7 @@ public class Noms {
         this.cal = cal;
     }
 
-    public boolean isHasPeanuts() {
+    public boolean HasPeanuts() {
         return hasPeanuts;
     }
 

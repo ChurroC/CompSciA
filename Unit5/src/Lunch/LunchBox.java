@@ -67,7 +67,7 @@ public class LunchBox {
      */
     public boolean checkForPeanuts() {
         for (Noms nom : arrayOfNoms) {
-            if (nom != null || nom.isHasPeanuts()) {
+            if (nom != null || nom.HasPeanuts()) {
                 return true;
             }
         }

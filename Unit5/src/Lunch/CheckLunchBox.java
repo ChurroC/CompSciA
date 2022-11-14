@@ -20,7 +20,7 @@ public class CheckLunchBox {
         System.out.println("Total calories: " + lunchBox.totalCalories());
         System.out.println();
 
-        System.out.println("Find nom and check if it has peanuts: " + lunchBox.findNom("Peanut Butter").isHasPeanuts());
+        System.out.println("Find nom and check if it has peanuts: " + lunchBox.findNom("Peanut Butter").HasPeanuts());
         System.out.println();
 
         LunchBox[] lunchBoxes = lunchBox.packMultipleLunchboxes(3);
