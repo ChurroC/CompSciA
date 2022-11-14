@@ -1,6 +1,7 @@
 package Lunch;
 import java.util.ArrayList;
 /**
+ * @
  * This class is used to organize multiple Noms together and create a lunchbox.
  * @author Charan Chandran
  * @author Lukas Felde
@@ -9,10 +10,10 @@ public class LunchBox {
     private Noms[] arrayOfNoms;
     private static int totalLunchboxes = 0;
     private static LunchBox lunchboxWithMostCalories;
-    
+
     public LunchBox(Noms... arrayOfNoms) {
-        totalLunchboxes++;
         this.arrayOfNoms = arrayOfNoms;
+        totalLunchboxes++;
         //Might be a stupid idea but
         if (lunchboxWithMostCalories == null || this.totalCalories() > lunchboxWithMostCalories.totalCalories()) {
             lunchboxWithMostCalories = this;
@@ -39,6 +40,7 @@ public class LunchBox {
      * @return true if the lunchboxes are equal, false if they are not.
      */
     public boolean equals(LunchBox lunchBox) {
+        System.out.println("wow");
         if (lunchBox.arrayOfNoms.length != this.arrayOfNoms.length) {
             return false;
         }
@@ -106,14 +108,8 @@ public class LunchBox {
 
 
     /**
-     * This function is used to solve the problem where the function will return the first Nom.
-     * This function will return the indice of the name.
-     * So it can return the second peanut butter for example.
-     * Works like {@link LunchBox#findNom(String name)} but has an index of which peanut butter should be returned.
-     *
-     * @param name  name of the Nom to find.
-     * @param index name of the Nom to find.
-     * @return the Nom with the matching name or returns null.
+     * Works like {@link LunchBox#findNom(String name)} but has returns an array with all the indices.
+     * @param name name of the Nomw to find.
      */
     public Noms[] findNomAll(String name) {
         ArrayList<Noms> output = new ArrayList<Noms>();
@@ -128,6 +124,7 @@ public class LunchBox {
     /**
      * This function splices out all the items with the same set of names as in params.
      * If you want to get rid 2 items that have the same name you have to add the items name twice in params.
+     * Should use arraylist instead of array.
      * @param namesOfNoms All the names of the items that will be eaten.
      */
     public void eatNoms(String... namesOfNoms) {

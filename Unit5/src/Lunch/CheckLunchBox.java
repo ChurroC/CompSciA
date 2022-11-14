@@ -25,8 +25,8 @@ public class CheckLunchBox {
 
         LunchBox[] lunchBoxes = lunchBox.packMultipleLunchboxes(3);
         System.out.println("Pack multiple of the same lunchbox for the family:");
-        System.out.println("Lunchbox 1 compared to lunchbox 2: " + (lunchBoxes[0] == lunchBoxes[1]));
-        System.out.println("Lunchbox 2 compared to lunchbox 3: " + (lunchBoxes[1] == lunchBoxes[2]));
+        System.out.println("Lunchbox 1 compared to lunchbox 2: " + (lunchBoxes[0].equals(lunchBoxes[1])));
+        System.out.println("Lunchbox 2 compared to lunchbox 3: " + (lunchBoxes[1].equals(lunchBoxes[2])));
         System.out.println();
 
         System.out.print("toString Lunchbox Method: \n" + lunchBoxes[1]);
@@ -36,7 +36,7 @@ public class CheckLunchBox {
         //You can use an array as a parameter for noms
         Noms[] nomNoms2 = {new Noms("Apple", 50, false), new Noms("Peanut Butter", 150, true), new Noms("Bob", 25, false)};
         LunchBox lunchBox2 = new LunchBox(nomNoms2);
-        System.out.println("Are lunchbox 1 and 2 equal to each other: " + (lunchBox == lunchBox2));
+        System.out.println("Are lunchbox 1 and 2 equal to each other: " + (lunchBox.equals(lunchBox2)));
         System.out.println("How many more calories does lunchbox 1 have than lunchbox2 2: " + (lunchBox.compareTo(lunchBox2)));
         System.out.println();
 
