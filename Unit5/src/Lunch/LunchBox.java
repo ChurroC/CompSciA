@@ -1,12 +1,12 @@
 package Lunch;
 import java.util.ArrayList;
 /**
- * @
  * This class is used to organize multiple Noms together and create a lunchbox.
  * @author Charan Chandran
  * @author Lukas Felde
  */
 public class LunchBox {
+    // Should have made arrayOfNoms an arrayList
     private Noms[] arrayOfNoms;
     private static int totalLunchboxes = 0;
     private static LunchBox lunchboxWithMostCalories;
@@ -40,7 +40,6 @@ public class LunchBox {
      * @return true if the lunchboxes are equal, false if they are not.
      */
     public boolean equals(LunchBox lunchBox) {
-        System.out.println("wow");
         if (lunchBox.arrayOfNoms.length != this.arrayOfNoms.length) {
             return false;
         }
@@ -95,18 +94,13 @@ public class LunchBox {
      * @return the Nom with the matching name or returns null.
      */
     public Noms findNom(String name) {
-        //ArrayList<Noms> output = new ArrayList<Noms>();
         for (Noms nom : arrayOfNoms) {
             if (nom != null && nom.getName().equals(name)) {
-                //output.add(nom);
                 return nom;
             }
         }
         return null;
-        //(Noms[]) output.toArray();
     }
-
-
     /**
      * Works like {@link LunchBox#findNom(String name)} but has returns an array with all the indices.
      * @param name name of the Nomw to find.
@@ -131,6 +125,7 @@ public class LunchBox {
         for (String nomName : namesOfNoms) {
             for (int i = 0; i < arrayOfNoms.length; i++) {
                 if (arrayOfNoms[i] == findNom(nomName)) {
+                    // Should have used arrayList
                     Noms[] copyArray = new Noms[arrayOfNoms.length - 1];
                     System.arraycopy(arrayOfNoms, 0, copyArray, 0, i);
                     System.arraycopy(arrayOfNoms, i + 1, copyArray, i, arrayOfNoms.length - i - 1);
@@ -153,8 +148,9 @@ public class LunchBox {
 
     /**
      * This function returns an array of the same lunchbox multiple times for the whole family.
+     * Have to figure out how to deep clone later.
      * @param lunchBoxCount the number of lunchboxes to return.
-     * @return an array of lunchboxes.
+     * @return an array of lunchboxes the same reference.
      */
     public LunchBox[] packMultipleLunchboxes(int lunchBoxCount) {
         LunchBox[] arrayOfLunchboxes = new LunchBox[lunchBoxCount];

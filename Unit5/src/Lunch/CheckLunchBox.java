@@ -49,5 +49,7 @@ public class CheckLunchBox {
 
         System.out.println("Total amount of lunchboxes: " + LunchBox.getTotalLunchboxes());
         System.out.println("Lunchbox with the most calories: \n" + LunchBox.getLunchboxWithMostCalories());
+
+        System.out.println(lunchBox == lunchBox2);
     }
 }

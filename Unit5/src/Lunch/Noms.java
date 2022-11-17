@@ -23,6 +23,27 @@ public class Noms {
         return name + " has " + cal + " calories and " + (hasPeanuts ? "has" : "does not have") + " peanuts.";
     }
 
+    /**
+     * Compares if 2 Noms are equal.
+     * @param Nom the Nom to compare to.
+     * @return true if the Noms are equal, false if they are not.
+     */
+    public boolean equals(Noms Nom) {
+        if (!this.toString().equals(Nom.toString())) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Compares two Noms to check which one has more calories.
+     * @param Nom the Nom to compare to.
+     * @return how much more calories the Nom has.
+     */
+    public int compareTo(Noms Nom) {
+        return this.cal - Nom.getCal();
+    }
+
     public String getName() {
         return name;
     }
