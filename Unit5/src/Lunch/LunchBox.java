@@ -14,10 +14,7 @@ public class LunchBox {
     public LunchBox(Noms... arrayOfNoms) {
         this.arrayOfNoms = arrayOfNoms;
         totalLunchboxes++;
-        //Might be a stupid idea but
-        if (lunchboxWithMostCalories == null || this.totalCalories() > lunchboxWithMostCalories.totalCalories()) {
-            lunchboxWithMostCalories = this;
-        }
+        checkForLunchboxWithMostCalories();
     }
 
     /**
@@ -159,6 +156,13 @@ public class LunchBox {
         }
         return arrayOfLunchboxes;
     }
+
+    public void checkForLunchboxWithMostCalories() {
+        if (lunchboxWithMostCalories == null || this.totalCalories() > lunchboxWithMostCalories.totalCalories()) {
+            lunchboxWithMostCalories = this;
+        }
+    }
+
 
     public Noms[] getArrayOfNoms() {
         return arrayOfNoms;

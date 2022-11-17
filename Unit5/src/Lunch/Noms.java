@@ -29,10 +29,7 @@ public class Noms {
      * @return true if the Noms are equal, false if they are not.
      */
     public boolean equals(Noms Nom) {
-        if (!this.toString().equals(Nom.toString())) {
-            return false;
-        }
-        return true;
+        return this.toString().equals(Nom.toString());
     }
 
     /**
