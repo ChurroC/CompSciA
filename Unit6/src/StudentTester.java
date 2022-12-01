@@ -1,15 +1,44 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class StudentTester {
-    public static void main(String[] args) {
-        Course[] myClasses = new Course[8];
-        myClasses[0] = new Course("Computer Science", "Mr. DeStephano", 1, 20.0);
-        myClasses[1] = new Course("Spanish", "Mr. Smith", 2, 90.0);
-        myClasses[2] = new Course("English", "Mrs. Jones", 3, 80.0);
-        myClasses[3] = new Course("Lunch", 4);
-        myClasses[4] = new Course("PE", "Mr. Williams", 5, 60.0);
-        myClasses[5] = new Course("Math", "Mrs. Brown", 6, 50.0);
-        myClasses[6] = new Course("Science", "Mr. Davis", 7, 40.0);
-        myClasses[7] = new Course("Band", "Mrs. Miller", 8, 30.0);
-        Student student1 = new Student("John", myClasses);
-        System.out.println(student1);
+    public static void main(String[] args) throws FileNotFoundException {
+        final File myFile = new File("stuff/studentScheduleData.txt");
+        final Scanner scan = new Scanner(myFile);
+
+
+        final int numClasses = Integer.parseInt(scan.nextLine());
+        final Student[] students = new Student[numClasses];
+
+        for (int j = 0; j < numClasses; j++) {
+            final Course[] myClasses = new Course[8];
+            final String studentName = scan.nextLine();
+            final Student student = new Student(studentName, myClasses);
+
+            for (int i = 0; i < myClasses.length; i++) {
+                final String teachName = scan.nextLine();
+                final String sub = scan.nextLine();
+                final String cGrade = scan.nextLine();
+                final int per = scan.nextInt();
+
+                if (teachName.equals("None")) {
+                    myClasses[i] = new Course(sub, per);
+                } else {
+                    myClasses[i] = new Course(sub, teachName, per, cGrade);
+                }
+
+                if (!scan.hasNextLine()) {
+                    break;
+                }
+                scan.nextLine();
+            }
+
+            students[j] = student;
+        }
+
+        for (Student student: students) {
+            System.out.println(student);
+        }
     }
 }

@@ -1,9 +1,8 @@
 public class Course {
-    private String subject, teacherName;
+    private String subject, teacherName, currentGrade;
     private int period;
-    private double currentGrade;
 
-    public Course(String subject, String teacherName, int period, double currentGrade) {
+    public Course(String subject, String teacherName, int period, String currentGrade) {
         this.subject = subject;
         this.teacherName = teacherName;
         this.period = period;
@@ -15,7 +14,7 @@ public class Course {
     }
 
     public String toString() {
-        return this.subject + " " + this.period + (this.teacherName != null ? " " + this.teacherName : "") + (this.currentGrade != 0.0 ? " " + this.currentGrade : "");
+        return this.subject + " " + this.period + (this.teacherName != null ? " " + this.teacherName : "") + (this.currentGrade != null ? " " + this.currentGrade : "");
     }
 
     public String getSubject() {
@@ -42,11 +41,11 @@ public class Course {
         this.period = period;
     }
 
-    public double getCurrentGrade() {
+    public String getCurrentGrade() {
         return currentGrade;
     }
 
-    public void setCurrentGrade(double currentGrade) {
+    public void setCurrentGrade(String currentGrade) {
         this.currentGrade = currentGrade;
     }
 }
