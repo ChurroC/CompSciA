@@ -11,7 +11,8 @@ public class StudentTester {
         final int numClasses = Integer.parseInt(scan.nextLine());
         final Student[] students = new Student[numClasses];
 
-        for (int j = 0; j < numClasses; j++) {
+        int studentIndex = 0;
+        while (scan.hasNextLine()) {
             final Course[] myClasses = new Course[8];
             final String studentName = scan.nextLine();
             final Student student = new Student(studentName, myClasses);
@@ -34,7 +35,8 @@ public class StudentTester {
                 scan.nextLine();
             }
 
-            students[j] = student;
+            students[studentIndex] = student;
+            studentIndex++;
         }
 
         for (Student student: students) {
