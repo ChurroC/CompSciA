@@ -17,6 +17,9 @@ public class Questions {
     }
 
     public String getQuestion() {
+        change questions to array
+        add a check fuocntiom
+        add randomization in the question return instead if an array
         return question;
     }
 
