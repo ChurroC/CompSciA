@@ -1,8 +1,9 @@
 public class Questions {
-    private String question, answer;
+    private String question;
+    private String[] answer;
     private int points;
 
-    public Questions(String question, String answer, int points) {
+    public Questions(String question, String[] answer, int points) {
         this.question = question;
         this.answer = answer;
         this.points = points;
@@ -16,11 +17,8 @@ public class Questions {
         return this.question + " (" + this.points + ")";
     }
 
-    public String getQuestion() {
-        change questions to array
-        add a check fuocntiom
-        add randomization in the question return instead if an array
-        return question;
+    public String getQuestion(String question) {
+        return question = question;
     }
 
     public void setQuestion(String question) {
@@ -28,10 +26,18 @@ public class Questions {
     }
 
     public String getAnswer() {
+        return answer[(int)(Math.random() * answer.length)];
+    }
+
+    public String[] getArrayOfQuestions() {
         return answer;
     }
 
-    public void setAnswer(String answer) {
+    public void setAnswer(String answer, int index) {
+        this.answer[index] = answer;
+    }
+
+    public void setArrayOfAnswers(String[] answer) {
         this.answer = answer;
     }
 
