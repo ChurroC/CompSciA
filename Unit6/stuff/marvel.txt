@@ -1,59 +1,60 @@
-\\How many Infinity Stones are there?, 10
+12
+How many Infinity Stones are there?, 10
 6
 7, correct
 3
 5
-\\Where is Captain America from?, 9
+Where is Captain America from?, 9
 Washington DC
 Florida
 Brooklyn, correct
 Queens
-\\Who is Tony Stark’s father?, 8
+Who is Tony Stark's father?, 8
 Joe Stark
 Steve Rogers
 Bobby Stark
 Howard Stark, correct
-\\What type of doctor is Doctor Strange?, 9
+What type of doctor is Doctor Strange?, 9
 Neurosurgeon, correct
 Anesthesiologists
 Obstetricians
 Endocrinologists
-\\Wanda and her brother Pietro are from where?, 11
+Wanda and her brother Pietro are from where?, 11
 Sokovia, correct
 Latveria
 Wakanda
 Canada
-\\What is the name of the villain in the first Avengers movie?, 12
+What is the name of the villain in the first Avengers movie?, 12
 Ultron
 Thanos
 Loki, correct
 Red Skull
-\\Who rescued Tony Stark and Nebula from space?, 13
+Who rescued Tony Stark and Nebula from space?, 13
 Thor
 Captain America
 Black Widow
 Captain Marvel, correct
-\\What's the name of the amulet Doctor Strange wears around his neck?, 7
+What's the name of the amulet Doctor Strange wears around his neck?, 7
 Eye of Agamotto, correct
 Amulet of Samarkand
 One Ring
 Tesseract
-\\What is Mobius' last name in Loki?, 10
+What is Mobius' last name in Loki?, 10
 Mobius, correct
 Mephisto
 Mortis
 Morgenthau
-\\What is the name of the dwarf that created Stormbreaker in Avengers: Infinity War?, 10
+What is the name of the dwarf that created Stormbreaker in Avengers: Infinity War?, 10
 Joe
 Nothot
 Krolar
 Eitri, correct
-\\About how old is Thor?, 9
+About how old is Thor?, 9
 1500, correct
 300
 2200
 1000
-\\What is Captain America’s shield made of?, 11
+What is Captain America's shield made of?, 11
 Adamantium
 Vibranium, correct
 Uru

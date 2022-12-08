@@ -1,3 +1,5 @@
+package TriviaLab;
+
 public class Questions {
     private String question;
     private String[] answer;
@@ -10,11 +12,11 @@ public class Questions {
     }
 
     /**
-     * Return the question with the points in parenthesis
+     * Return the question with the points in parentheses
      * @return The question
      */
     public String toString() {
-        return this.question + " (" + this.points + ")";
+        return this.question + " (" + this.points + " points)";
     }
 
     public String getQuestion(String question) {
