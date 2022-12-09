@@ -19,6 +19,10 @@ public class Questions {
         return this.question + " (" + this.points + " points)";
     }
 
+    public boolean equals(Questions other) {
+        return this.question.equals(other.question);
+    }
+
     public String getQuestion(String question) {
         return question = question;
     }

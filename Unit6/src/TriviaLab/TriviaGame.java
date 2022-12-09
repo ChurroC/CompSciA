@@ -5,13 +5,14 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class TriviaGame {
-    private Questions[] questions, nonUsedQuestions;
+    private Questions[] questions, randomQuestions;
     private int totalWinnings, totalCorrect, totalIncorrect, currentStreak;
 
-    public void getQuestions() throws FileNotFoundException {
+    public void createQuestions() throws FileNotFoundException {
         Scanner scan = new Scanner(new File("stuff/marvel.txt"));
         int numQuestions = Integer.parseInt(scan.nextLine());
         questions = new Questions[numQuestions];
+        randomQuestions = new Questions[numQuestions];
         for (int i = 0; i < numQuestions; i++) {
             final String firstLine = scan.nextLine();
             final String question = firstLine.substring(0, firstLine.indexOf(","));
@@ -19,28 +20,42 @@ public class TriviaGame {
             final String[] answers = {scan.nextLine(), scan.nextLine(), scan.nextLine(), scan.nextLine()};
             questions[i] = new Questions(question, answers, points);
         }
-
+        Questions test1 = new Questions("ioj", new String[]{"ioj", "ioj", "ioj", "ioj"}, 1);
+        Questions test2 = new Questions("ioj", new String[]{"ioj", "ioj", "ioj", "ioj"}, 1);
+        System.out.println(test1.equals(test2));
+        for (int i = 0; i < numQuestions; i++) {
+            randomQuestions[i] = createRandomNumbers();
+            System.out.println(randomQuestions[i]);
+        }
     }
 
-    public String createQuestion() {
-        Questions question = questions[(int) (Math.random() * questions.length)];
-    }
-
-    public String playGame() {
-        int score = 0;
-        for (Questions question: questions) {
-            System.out.println(question);
-            final Scanner scan = new Scanner(System.in);
-            final String answer = scan.nextLine();
-            if (answer.equals(question.getAnswer())) {
-                score += question.getPoints();
+    public Questions createRandomNumbers() {
+        final int randomIndex = (int)(Math.random() * questions.length);
+        System.out.println("wow");
+        final Questions question = questions[randomIndex];
+        for (Questions q: questions) {
+            if (q == question) {
+                return createRandomNumbers();
             }
         }
+        System.out.println("done");
+        return question;
+    }
+
+    public void playGame() {
+        int score = 0;
+        Questions question = getRandomQuestions();
         System.out.println("Your score is " + score);
     }
+
+    public Questions getRandomQuestions() {
+        return questions[(int) (Math.random() * questions.length)];
+    }
+
     public Questions[] getQuestions() {
         return questions;
     }
+
     public Questions getQuestions(int index) {
         return questions[index];
     }
