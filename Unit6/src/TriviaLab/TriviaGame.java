@@ -5,63 +5,64 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class TriviaGame {
-    private Questions[] questions, randomQuestions;
-    private int totalWinnings, totalCorrect, totalIncorrect, currentStreak;
+    private Question[] allQuestions, questions;
+    private int totalWinnings, totalCorrect, totalIncorrect, currentStreak, arrayIndex;
+
+    public TriviaGame() throws FileNotFoundException {
+        createQuestions();
+        this.totalWinnings = 0;
+        this.totalCorrect = 0;
+        this.totalIncorrect = 0;
+        this.currentStreak = 0;
+        this.arrayIndex = 0;
+    }
 
     public void createQuestions() throws FileNotFoundException {
         Scanner scan = new Scanner(new File("stuff/marvel.txt"));
         int numQuestions = Integer.parseInt(scan.nextLine());
-        questions = new Questions[numQuestions];
-        randomQuestions = new Questions[numQuestions];
+        allQuestions = new Question[numQuestions];
+        questions = new Question[numQuestions];
         for (int i = 0; i < numQuestions; i++) {
             final String firstLine = scan.nextLine();
             final String question = firstLine.substring(0, firstLine.indexOf(","));
+            final String correctAnswer = firstLine.substring(firstLine.indexOf(",") + 1);
             final int points = Integer.parseInt(firstLine.substring(firstLine.indexOf(",") + 2));
             final String[] answers = {scan.nextLine(), scan.nextLine(), scan.nextLine(), scan.nextLine()};
-            questions[i] = new Questions(question, answers, points);
+            allQuestions[i] = new Question(question, answers, points, correctAnswer);
+            questions[i] = new Question(question, answers, points, correctAnswer);
         }
-        Questions test1 = new Questions("ioj", new String[]{"ioj", "ioj", "ioj", "ioj"}, 1);
-        Questions test2 = new Questions("ioj", new String[]{"ioj", "ioj", "ioj", "ioj"}, 1);
-        System.out.println(test1.equals(test2));
         for (int i = 0; i < numQuestions; i++) {
-            randomQuestions[i] = createRandomNumbers();
-            System.out.println(randomQuestions[i]);
+            int random = (int)(Math.random() * numQuestions);
+            Question temp = questions[i];
+            questions[i] = questions[random];
+            questions[random] = temp;
         }
     }
 
-    public Questions createRandomNumbers() {
-        final int randomIndex = (int)(Math.random() * questions.length);
-        System.out.println("wow");
-        final Questions question = questions[randomIndex];
-        for (Questions q: questions) {
-            if (q == question) {
-                return createRandomNumbers();
-            }
-        }
-        System.out.println("done");
-        return question;
-    }
-
-    public void playGame() {
+    public void playRound() {
         int score = 0;
-        Questions question = getRandomQuestions();
-        System.out.println("Your score is " + score);
+        Question question = questions[arrayIndex++];
+        System.out.println(question.getQuestion());
+        for (int i = 0; i < question.getAnswers().length; i++) {
+            System.out.println(question.getAnswers()[i]);
+            System.out.println("\t" + ((char) (97 + i)) + ".\t" + question.getAnswers()[i]);
+        }
     }
 
-    public Questions getRandomQuestions() {
-        return questions[(int) (Math.random() * questions.length)];
+    public Question getRandomQuestions() {
+        return allQuestions[(int) (Math.random() * allQuestions.length)];
     }
 
-    public Questions[] getQuestions() {
-        return questions;
+    public Question[] getAllQuestions() {
+        return allQuestions;
     }
 
-    public Questions getQuestions(int index) {
-        return questions[index];
+    public Question getQuestions(int index) {
+        return allQuestions[index];
     }
 
-    public void setQuestions(Questions[] questions) {
-        this.questions = questions;
+    public void setAllQuestions(Question[] allQuestions) {
+        this.allQuestions = allQuestions;
     }
 
     public int getTotalWinnings() {
