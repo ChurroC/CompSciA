@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class TriviaGame {
-    private Question[] allQuestions, questions;
+    private Question[] questions;
     private int totalWinnings, totalCorrect, totalIncorrect, currentStreak, arrayIndex;
 
     public TriviaGame() throws FileNotFoundException {
@@ -20,49 +20,75 @@ public class TriviaGame {
     public void createQuestions() throws FileNotFoundException {
         Scanner scan = new Scanner(new File("stuff/marvel.txt"));
         int numQuestions = Integer.parseInt(scan.nextLine());
-        allQuestions = new Question[numQuestions];
         questions = new Question[numQuestions];
         for (int i = 0; i < numQuestions; i++) {
             final String firstLine = scan.nextLine();
             final String question = firstLine.substring(0, firstLine.indexOf(","));
-            final String correctAnswer = firstLine.substring(firstLine.indexOf(",") + 1);
             final int points = Integer.parseInt(firstLine.substring(firstLine.indexOf(",") + 2));
-            final String[] answers = {scan.nextLine(), scan.nextLine(), scan.nextLine(), scan.nextLine()};
-            allQuestions[i] = new Question(question, answers, points, correctAnswer);
-            questions[i] = new Question(question, answers, points, correctAnswer);
+            final String correctAnswer = scan.nextLine();
+            final String[] answers = {correctAnswer, scan.nextLine(), scan.nextLine(), scan.nextLine()};
+            questions[i] = new Question(question, randomizeArray(answers), points, correctAnswer);
         }
-        for (int i = 0; i < numQuestions; i++) {
-            int random = (int)(Math.random() * numQuestions);
-            Question temp = questions[i];
-            questions[i] = questions[random];
-            questions[random] = temp;
-        }
+        questions = randomizeArray(questions);
     }
 
-    public void playRound() {
-        int score = 0;
-        Question question = questions[arrayIndex++];
-        System.out.println(question.getQuestion());
+    public <T> T[] randomizeArray(T[] arrayInput) {
+        T[] array = arrayInput.clone();
+        for (int i = 0; i < array.length; i++) {
+            array[i] = arrayInput[i];
+        }
+        for (int i = 0; i < array.length; i++) {
+            int random = (int)(Math.random() * array.length);
+            T temp = array[i];
+            array[i] = array[random];
+            array[random] = temp;
+        }
+        return array;
+    }
+
+    public void askQuestions() {
+        Question question = questions[arrayIndex];
+        System.out.println(question);
         for (int i = 0; i < question.getAnswers().length; i++) {
-            System.out.println(question.getAnswers()[i]);
             System.out.println("\t" + ((char) (97 + i)) + ".\t" + question.getAnswers()[i]);
         }
     }
 
-    public Question getRandomQuestions() {
-        return allQuestions[(int) (Math.random() * allQuestions.length)];
+    public void answerQuestion(String answer) {
+        if (answer.equalsIgnoreCase("a")) { answer = questions[arrayIndex].getAnswers()[0]; }
+        else if (answer.equalsIgnoreCase("b")) { answer = questions[arrayIndex].getAnswers()[1]; }
+        else if (answer.equalsIgnoreCase("c")) { answer = questions[arrayIndex].getAnswers()[2]; }
+        else { answer = questions[arrayIndex].getAnswers()[3]; }
+
+        if (answer.equals(questions[arrayIndex].getCorrectAnswer())) {
+            System.out.println("Good Job! You got the right answer!");
+            totalWinnings += questions[arrayIndex].getPoints();
+            totalCorrect++;
+            currentStreak++;
+        } else {
+            System.out.println("I'm sorry, but you are wrong.");
+            totalIncorrect++;
+            currentStreak = 0;
+        }
+        System.out.println("Total Winning: " + totalWinnings);
+        System.out.println("Total Correct: " + totalCorrect);
+        System.out.println("Total Incorrect: " + totalIncorrect);
+        System.out.println("Current Streak: " + currentStreak);
+        arrayIndex++;
     }
 
-    public Question[] getAllQuestions() {
-        return allQuestions;
+    public boolean checkForGameOver() {
+        return arrayIndex == 2;
     }
 
-    public Question getQuestions(int index) {
-        return allQuestions[index];
-    }
+    public void gameOver() {
+        System.out.println("*** Game Over ***");
+        System.out.println("Total Winning: " + totalWinnings);
+        System.out.println("Total Correct: " + totalCorrect);
+        System.out.println("Total Incorrect: " + totalIncorrect);
+        System.out.println("Current Streak: " + currentStreak);
+        System.out.println("Percentage Correct: " + totalCorrect/(totalCorrect + totalIncorrect));
 
-    public void setAllQuestions(Question[] allQuestions) {
-        this.allQuestions = allQuestions;
     }
 
     public int getTotalWinnings() {
