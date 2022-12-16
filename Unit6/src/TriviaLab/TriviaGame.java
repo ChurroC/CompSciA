@@ -78,7 +78,7 @@ public class TriviaGame {
     }
 
     public boolean checkForGameOver() {
-        return arrayIndex == 2;
+        return arrayIndex == questions.length;
     }
 
     public void gameOver() {
