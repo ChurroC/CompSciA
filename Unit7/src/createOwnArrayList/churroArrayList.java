@@ -2,6 +2,7 @@ package createOwnArrayList;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Collection;
 
 public class churroArrayList<T> {
     transient T[] array;
@@ -56,7 +57,6 @@ public class churroArrayList<T> {
     public int size() {
         return array.length;
     }
-
     @Override
     public String toString() {
         return Arrays.deepToString(array);
