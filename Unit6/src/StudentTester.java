@@ -3,8 +3,8 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class StudentTester {
-    public static void main(String[] args) throws FileNotFoundException {
-        final File myFile = new File("stuff/studentScheduleData.txt");
+        public static void main(String[] args) throws FileNotFoundException {
+            final File myFile = new File("stuff/studentScheduleData.txt");
         final Scanner scan = new Scanner(myFile);
 
 
