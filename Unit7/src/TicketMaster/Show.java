@@ -15,7 +15,7 @@ public class Show {
 
     @Override
     public String toString() {
-        return super.toString();
+        return performer + " at " + city + " on " + date + " for " + price + " with " + qty + " seats open.";
     }
 
     public String getDate() {

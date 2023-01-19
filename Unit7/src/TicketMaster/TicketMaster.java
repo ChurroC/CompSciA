@@ -29,6 +29,16 @@ public class TicketMaster {
         }
     }
 
+    public ArrayList<Show> showsInCity(String cityName) {
+        ArrayList<Show> showsInCity = new ArrayList<Show>();
+        for (Show show: shows) {
+            if (show.getCity().equalsIgnoreCase(cityName)) {
+                showsInCity.add(show);
+            }
+        }
+        return showsInCity;
+    }
+
     @Override
     public String toString() {
         int lengthOfLongestPerformer = 0;
@@ -36,7 +46,7 @@ public class TicketMaster {
             if (show.getPerformer().length() > lengthOfLongestPerformer) lengthOfLongestPerformer = show.getPerformer().length();
         }
         String showData = "Date\t\tPrice\tQty\t\t" + String.format("%-" + (lengthOfLongestPerformer + 5) + "s", "Performer") + "City\n";
-        showData += new String(Arrays.fill(new char[showData.length()], '-'));
+        showData += "--------------------------------------------------------------\n";
         for (Show show: shows) {
             showData += show.getDate() + "\t" + show.getPrice() + "\t" + show.getQty() + "\t\t" + String.format("%-" + (lengthOfLongestPerformer + 5) + "s", show.getPerformer()) + "" + show.getCity() + "\n";
         }
