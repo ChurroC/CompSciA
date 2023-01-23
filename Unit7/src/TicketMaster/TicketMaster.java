@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class TicketMaster {
     final ArrayList<Show> shows = new ArrayList<Show>();
     final File myFile = new File("src/TicketMaster/showData.txt");
-    final Scanner scan = new Scanner(myFile);
+    final Scanner scanFile = new Scanner(myFile);
 
 
     public TicketMaster() throws FileNotFoundException {
@@ -17,11 +17,11 @@ public class TicketMaster {
     }
 
     public void readShowData() {
-        while (scan.hasNextLine()) {
-            final String date = scan.next();
-            final double price = scan.nextDouble();
-            final int qty = scan.nextInt();
-            final String[] restOfLine = scan.nextLine().split(", ");
+        while (scanFile.hasNextLine()) {
+            final String date = scanFile.next();
+            final double price = scanFile.nextDouble();
+            final int qty = scanFile.nextInt();
+            final String[] restOfLine = scanFile.nextLine().split(", ");
             final String performer = restOfLine[0].trim();
             final String city = restOfLine[1].trim();
 
