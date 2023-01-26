@@ -14,11 +14,10 @@ public class TicketMasterDriver {
             try {
                 System.out.println("1. Show all shows");
                 System.out.println("2. Sort From A-Z");
-                System.out.println("3. Sort From Z-A");
-                System.out.println("4. Ticket Price From Low To High");
-                System.out.println("5. Ticket Price From High To Low");
-                System.out.println("6. Search By City");
-                System.out.println("7. Quit");
+                System.out.println("3. Ticket Price From Low To High");
+                System.out.println("4. Search By City");
+                System.out.println("5. Reverse The Shows");
+                System.out.println("6. Quit");
                 int input = scan.nextInt();
                 System.out.println("input");
                 System.out.println(input);
@@ -27,22 +26,23 @@ public class TicketMasterDriver {
                         System.out.println(ticketMaster);
                         break;
                     case 2:
+                        ticketMaster.sortByPerformer();
                         System.out.println(ticketMaster);
                         break;
                     case 3:
-                        System.out.println(ticketMaster);
                         break;
                     case 4:
-                        System.out.println(ticketMaster);
+                        System.out.println("What city?");
+                        scan.nextLine();
+                        System.out.println(ticketMaster.showsInCity(scan.nextLine()));
                         break;
                     case 5:
+                        ticketMaster.reverse();
                         System.out.println(ticketMaster);
                         break;
                     case 6:
-                        System.out.println(ticketMaster);
-                        break;
-                    case 7:
-                        System.out.println(ticketMaster);
+                        scan.close();
+                        run = false;
                         break;
                     default:
                         while (input > 7 || input < 0) {

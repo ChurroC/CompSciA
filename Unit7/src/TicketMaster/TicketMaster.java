@@ -39,6 +39,26 @@ public class TicketMaster {
         return showsInCity;
     }
 
+    public void sortByPerformer() {
+        for (int i = 0; i < shows.size() - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < shows.size(); j++) {
+                if (shows.get(j).getPerformer().compareTo(shows.get(minIndex).getPerformer()) < 0) {
+                    minIndex = j;
+                }
+            }
+            shows.set(minIndex, shows.set(i, shows.get(minIndex)));
+        }
+        System.out.println(shows);
+    }
+    
+    public void reverse() {
+        
+        for (int i = 0; i < shows.size(); i++) {
+            shows.set(shows.size() - 1 - i, shows.get(i));
+        }
+    }
+
     @Override
     public String toString() {
         int lengthOfLongestPerformer = 0;
