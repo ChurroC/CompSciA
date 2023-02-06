@@ -51,6 +51,20 @@ public class TicketMaster {
         }
         System.out.println(shows);
     }
+
+    public void sortByPrice() {
+        System.out.println(shows);
+        for (int i = 1; i < shows.size(); i++) {
+            Show show = shows.get(i);
+            int index = i;
+            while (index > 0 && shows.get(i - 1).getPrice() > show.getPrice()) {
+                shows.set(index, shows.get(i - 1));
+                index--;
+            }
+            shows.set(index, show);
+            System.out.println(shows);
+        }
+    }
     
     public void reverse() {
         

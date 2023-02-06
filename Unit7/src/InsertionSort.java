@@ -3,10 +3,10 @@ import java.util.Arrays;
 
 public class InsertionSort {
     public static void main(String[] args) {
-        ArrayList<Integer> array = new ArrayList<>(Arrays.asList(5, 3, 4, 1 ,6, 2));
+        ArrayList<Double> array = new ArrayList<>(Arrays.asList(53.33, 2.3, 44.4, 39.3, 60.1, 2.02));
         //System.out.println(array);
         for (int i = 1;  i < array.size(); i++) {
-            int value = array.get(i);
+            double value = array.get(i);
             int index = i;
             while (index > 0 && array.get(index - 1) > value) {
                 System.out.println(array);

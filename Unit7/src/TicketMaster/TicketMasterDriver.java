@@ -30,6 +30,8 @@ public class TicketMasterDriver {
                         System.out.println(ticketMaster);
                         break;
                     case 3:
+                        ticketMaster.sortByPrice();
+                        System.out.println(ticketMaster);
                         break;
                     case 4:
                         System.out.println("What city?");
