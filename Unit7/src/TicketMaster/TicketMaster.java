@@ -7,12 +7,19 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class TicketMaster {
-    final ArrayList<Show> shows = new ArrayList<Show>();
-    final File myFile = new File("src/TicketMaster/showData.txt");
-    final Scanner scanFile = new Scanner(myFile);
+    final ArrayList<Show> shows;
+    final ArrayList<Show> cityShows;
+    boolean cityShowsCurrent;
+    final File myFile;
+    final Scanner scanFile;
 
 
     public TicketMaster() throws FileNotFoundException {
+        shows = new ArrayList<Show>();
+        cityShows = new ArrayList<Show>();
+        cityShowsCurrent = false;
+        myFile = new File("src/TicketMaster/showData.txt");
+        scanFile = new Scanner(myFile);
         readShowData();
     }
 
@@ -29,59 +36,63 @@ public class TicketMaster {
         }
     }
 
-    public ArrayList<Show> showsInCity(String cityName) {
-        ArrayList<Show> showsInCity = new ArrayList<Show>();
-        for (Show show: shows) {
+    public void showsInCity(String cityName) {
+        cityShowsCurrent = true;
+        ArrayList<Show> temp = cityShowsCurrent ? cityShows : shows;
+        for (Show show: temp) {
             if (show.getCity().equalsIgnoreCase(cityName)) {
-                showsInCity.add(show);
+                temp.add(show);
             }
         }
-        return showsInCity;
+    }
+    public void showsAllShows() {
+        cityShowsCurrent = false;
     }
 
     public void sortByPerformer() {
-        for (int i = 0; i < shows.size() - 1; i++) {
+        ArrayList<Show> temp = cityShowsCurrent ? cityShows : shows;
+        for (int i = 0; i < temp.size() - 1; i++) {
             int minIndex = i;
-            for (int j = i + 1; j < shows.size(); j++) {
-                if (shows.get(j).getPerformer().compareTo(shows.get(minIndex).getPerformer()) < 0) {
+            for (int j = i + 1; j < temp.size(); j++) {
+                if (temp.get(j).getPerformer().compareTo(temp.get(minIndex).getPerformer()) < 0) {
                     minIndex = j;
                 }
             }
-            shows.set(minIndex, shows.set(i, shows.get(minIndex)));
+            temp.set(minIndex, temp.set(i, temp.get(minIndex)));
         }
-        System.out.println(shows);
     }
 
     public void sortByPrice() {
-        System.out.println(shows);
-        for (int i = 1; i < shows.size(); i++) {
-            Show show = shows.get(i);
+        ArrayList<Show> temp = cityShowsCurrent ? cityShows : shows;
+        for (int i = 1; i < temp.size(); i++) {
+            Show show = temp.get(i);
             int index = i;
-            while (index > 0 && shows.get(i - 1).getPrice() > show.getPrice()) {
-                shows.set(index, shows.get(i - 1));
+            while (index > 0 && temp.get(index - 1).getPrice() > show.getPrice()) {
+                temp.set(index, temp.get(index - 1));
                 index--;
             }
-            shows.set(index, show);
-            System.out.println(shows);
+            temp.set(index, show);
+            System.out.println(temp);
         }
     }
     
     public void reverse() {
-        
-        for (int i = 0; i < shows.size(); i++) {
-            shows.set(shows.size() - 1 - i, shows.get(i));
+        ArrayList<Show> temp = cityShowsCurrent ? cityShows : shows;
+        for (int i = 0; i < temp.size() / 2; i++) {
+            temp.set(temp.size() - i - 1, temp.set(i, temp.get(temp.size() - i - 1)));
         }
     }
 
     @Override
     public String toString() {
+        ArrayList<Show> temp = cityShowsCurrent ? cityShows : shows;
         int lengthOfLongestPerformer = 0;
-        for (Show show: shows) {
+        for (Show show: temp) {
             if (show.getPerformer().length() > lengthOfLongestPerformer) lengthOfLongestPerformer = show.getPerformer().length();
         }
         String showData = "Date\t\tPrice\tQty\t\t" + String.format("%-" + (lengthOfLongestPerformer + 5) + "s", "Performer") + "City\n";
         showData += "--------------------------------------------------------------\n";
-        for (Show show: shows) {
+        for (Show show: temp) {
             showData += show.getDate() + "\t" + show.getPrice() + "\t" + show.getQty() + "\t\t" + String.format("%-" + (lengthOfLongestPerformer + 5) + "s", show.getPerformer()) + "" + show.getCity() + "\n";
         }
         return showData;

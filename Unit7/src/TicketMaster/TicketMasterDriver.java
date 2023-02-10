@@ -13,9 +13,9 @@ public class TicketMasterDriver {
         while (run) {
             try {
                 System.out.println("1. Show all shows");
-                System.out.println("2. Sort From A-Z");
+                System.out.println("2. Search By City");
                 System.out.println("3. Ticket Price From Low To High");
-                System.out.println("4. Search By City");
+                System.out.println("4. Sort From A-Z");
                 System.out.println("5. Reverse The Shows");
                 System.out.println("6. Quit");
                 int input = scan.nextInt();
@@ -23,10 +23,13 @@ public class TicketMasterDriver {
                 System.out.println(input);
                 switch (input) {
                     case 1:
+                        ticketMaster.showsAllShows();
                         System.out.println(ticketMaster);
                         break;
                     case 2:
-                        ticketMaster.sortByPerformer();
+                        System.out.println("What city?");
+                        scan.nextLine();
+                        ticketMaster.showsInCity(scan.nextLine());
                         System.out.println(ticketMaster);
                         break;
                     case 3:
@@ -34,9 +37,8 @@ public class TicketMasterDriver {
                         System.out.println(ticketMaster);
                         break;
                     case 4:
-                        System.out.println("What city?");
-                        scan.nextLine();
-                        System.out.println(ticketMaster.showsInCity(scan.nextLine()));
+                        ticketMaster.sortByPerformer();
+                        System.out.println(ticketMaster);
                         break;
                     case 5:
                         ticketMaster.reverse();
