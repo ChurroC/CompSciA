@@ -1,4 +1,4 @@
-package Unit9.Notes_9_2;
+package Notes_9_2;
 
 public class Drink extends MenuItem{
     private int numOz;
