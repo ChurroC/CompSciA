@@ -59,6 +59,5 @@ public class TicketMasterDriver {
                 scan.nextLine();
             }
         }
-        //System.out.println(ticketMaster);
     }
 }
